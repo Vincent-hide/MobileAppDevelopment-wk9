@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Blank </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label>City</ion-label>
+    <ion-input type="text" name="city" [(ngModel)]="city"></ion-input>
+  </ion-item>
+  <ion-button type="submit" (click)="handleSubmit()">Submit</ion-button>
+
+  <div *ngIf="!!weather">
+    <ul>
+      <li>name: {{weather.name}}</li>
+      <li>min: {{(weather.main.temp_min-273).toFixed(2)}}</li>
+      <li>max: {{(weather.main.temp_max-273).toFixed(2)}}</li>
+      <li>feels like: {{(weather.main.feels_like-273).toFixed(2)}}</li>
+      <li>temp: {{(weather.main.temp-273).toFixed(2)}}</li>
+      <li>coord lon: {{weather.coord.lon}}</li>
+      <li>coord lat: {{weather.coord.lat}}</li>
+      <li>wind speed: {{weather.wind.speed}}</li>
+      <li>wind direction: {{weather.wind.deg}}</li>
+    </ul>
+  </div>
+</ion-content>
